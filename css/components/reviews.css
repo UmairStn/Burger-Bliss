@@ -1,0 +1,66 @@
+/* Reviews Section Styles */
+.reviews-grid {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 1rem 0;
+    scroll-behavior: smooth;
+}
+
+.review-card {
+    width: 400px;
+    flex-shrink: 0;
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.stars {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.review-card p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.reviewer {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Scrollbar styling for webkit browsers */
+.reviews-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.reviews-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.reviews-grid::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .review-card {
+        min-width: 250px;
+    }
+    
+    .reviews-grid {
+        gap: 1rem;
+    }
+}

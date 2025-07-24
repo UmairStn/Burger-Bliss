@@ -1,0 +1,131 @@
+/* Import Component Styles */
+@import url('css/components/navbar.css');
+@import url('css/components/hero.css');
+@import url('css/components/features.css');
+@import url('css/components/offers.css');
+@import url('css/components/reviews.css');
+@import url('css/components/about.css');
+@import url('css/components/contact.css');
+@import url('css/components/footer.css');
+
+
+
+/* Default Theme (Light) */
+:root {
+    --primary-color: #FF6B35;
+    --primary-gradient: linear-gradient(135deg, #FF6B35, #F7931E);
+    --secondary-color: #F7C59F;
+    --accent-color: #8B4513;
+    --text-color: #2C2C2C;
+    --background-color: #FFF8F0;
+    --card-background: #FFFFFF;
+    --white-color: #FFFFFF;
+    --dark-background: #2C2C2C;
+    --shadow-light: 0 4px 20px rgba(255, 107, 53, 0.1);
+    --shadow-medium: 0 8px 30px rgba(255, 107, 53, 0.15);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --primary-color: #FF8C42;
+    --primary-gradient: linear-gradient(135deg, #FF8C42, #FFB347);
+    --secondary-color: #4A4A4A;
+    --accent-color: #FFB347;
+    --text-color: #E0E0E0;
+    --background-color: #1A1A1A;
+    --card-background: #2A2A2A;
+    --white-color: #FFFFFF;
+    --dark-background: #0F0F0F;
+    --shadow-light: 0 4px 20px rgba(255, 140, 66, 0.2);
+    --shadow-medium: 0 8px 30px rgba(255, 140, 66, 0.3);
+}
+
+/* Premium Theme */
+[data-theme="premium"] {
+    --primary-color: #FFD700;
+    --primary-gradient: linear-gradient(135deg, #D4AF37, #FFD700);
+    --secondary-color: #F5DEB3;
+    --accent-color: #B8860B;
+    --text-color: #2F2F2F;
+    --background-color: #FFFEF7;
+    --card-background: #FFFFFF;
+    --white-color: #FFFFFF;
+    --dark-background: #1C1C1C;
+    --shadow-light: 0 4px 20px rgba(212, 175, 55, 0.15);
+    --shadow-medium: 0 8px 30px rgba(212, 175, 55, 0.25);
+}
+
+/* Apply gradients to buttons and key elements */
+.hero-cta, .nav-cta {
+    background: var(--primary-gradient);
+    box-shadow: var(--shadow-light);
+}
+
+/* Global Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling natively */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--accent-color);
+    position: relative;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
+}
+
+h3 { font-size: 1.25rem; }
+
+/* General container for sections */
+.section-container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+

@@ -1,0 +1,169 @@
+/* Contact Section Styles */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2rem;
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Base Input Styles - ADD THIS */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Default (Light) Theme */
+.contact-form input,
+.contact-form textarea {
+    background-color: #FFFFFF;
+    border-color: #F7C59F;
+    color: #2C2C2C;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #FF6B35;
+    background-color: #FFF8F0;
+    box-shadow: 0 0 10px rgba(255, 107, 53, 0.2);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999;
+    opacity: 0.8;
+}
+
+/* Dark Theme */
+[data-theme="dark"] .contact-form input,
+[data-theme="dark"] .contact-form textarea {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--accent-color) ;
+    color: #E0E0E0;
+}
+
+[data-theme="dark"] .contact-form input:focus,
+[data-theme="dark"] .contact-form textarea:focus {
+    border-color: #FF8C42;
+    background-color: #1A1A1A;
+    box-shadow: 0 0 10px rgba(255, 140, 66, 0.3);
+}
+
+[data-theme="dark"] .contact-form input::placeholder,
+[data-theme="dark"] .contact-form textarea::placeholder {
+    color: #888;
+}
+
+/* Premium Theme */
+[data-theme="premium"] .contact-form input,
+[data-theme="premium"] .contact-form textarea {
+    background-color: #FFFEF7;
+    border: 2px solid #F5DEB3;
+    color: #2F2F2F;
+}
+
+[data-theme="premium"] .contact-form input:focus,
+[data-theme="premium"] .contact-form textarea:focus {
+    border-color: #D4AF37;
+    background-color: #FFFFF0;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    padding-left: 2rem;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Submit Button */
+.form-button {
+    background: var(--primary-gradient);
+    color: var(--white-color);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.form-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+    }
+    
+    .contact-info {
+        text-align: center;
+        padding-left: 0;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.8rem 1rem;
+    }
+}
+
+/* Remove the floating label styles if you're not using them */
+/* Comment out or remove these if they're causing conflicts:
+.input-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+*/
