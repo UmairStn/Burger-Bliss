@@ -42,17 +42,17 @@
 
 /* Premium Theme */
 [data-theme="premium"] {
-    --primary-color: #FFD700;
-    --primary-gradient: linear-gradient(135deg, #D4AF37, #FFD700);
-    --secondary-color: #F5DEB3;
-    --accent-color: #B8860B;
-    --text-color: #2F2F2F;
-    --background-color: #FFFEF7;
-    --card-background: #FFFFFF;
+    --primary-color: #FF7043; /* Warm Terracotta/Burnt Orange - Inviting, appetizing, not too loud */
+    --primary-gradient: linear-gradient(135deg, #FF8A65, #FF7043);
+    --secondary-color: #FFCA28; /* Golden Yellow - Sunny, cheerful, like fresh bread or butter */
+    --accent-color: #795548; /* Medium-Dark Brown - Rustic wood, grounding element */
+    --text-color: #5D4037; /* Dark Chocolate Brown - Strong contrast, comforting */
+    --background-color: #FAFAFA; /* Creamy Butter Yellow - Soft, comforting, and very light */
+    --card-background: #FFFFFF; /* Pale Orange/Peach - Adds a gentle warm texture to cards */
     --white-color: #FFFFFF;
-    --dark-background: #1C1C1C;
-    --shadow-light: 0 4px 20px rgba(212, 175, 55, 0.15);
-    --shadow-medium: 0 8px 30px rgba(212, 175, 55, 0.25);
+    --dark-background: #2A2A2A; /* Light Beige/Tan - Subtle background variation */
+    --shadow-light: 0 4px 15px rgba(255, 112, 67, 0.1);
+    --shadow-medium: 0 8px 25px rgba(255, 112, 67, 0.2);
 }
 
 /* Apply gradients to buttons and key elements */
@@ -127,5 +127,104 @@ h3 { font-size: 1.25rem; }
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+}
+
+/* Scroll Animation Base Styles */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, opacity;
+}
+
+/* Base animation state */
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific animation types with smoother transitions */
+.slide-in-left {
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-in-left.animate {
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-in-right.animate {
+    transform: translateX(0);
+}
+
+.slide-in-bottom {
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-in-bottom.animate {
+    transform: translateY(0);
+}
+
+.slide-in-top {
+    transform: translateY(-50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-in-top.animate {
+    transform: translateY(0);
+}
+
+.fade-scale {
+    transform: scale(0.9);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-scale.animate {
+    transform: scale(1);
+}
+
+.rotate-slide {
+    transform: translateX(-50px) rotate(-3deg);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.rotate-slide.animate {
+    transform: translateX(0) rotate(0deg);
+}
+
+/* Stagger delays only when animating */
+.stagger-1.animate { transition-delay: 0.1s; }
+.stagger-2.animate { transition-delay: 0.2s; }
+.stagger-3.animate { transition-delay: 0.3s; }
+.stagger-4.animate { transition-delay: 0.4s; }
+
+/* Special animations */
+.elastic.animate {
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.bounce.animate {
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Performance optimization */
+.scroll-animate {
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-animate {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
 }
 

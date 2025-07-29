@@ -4,6 +4,7 @@
     gap: 2rem;
     margin-top: 2rem;
     overflow-x: auto;
+    overflow-y: hidden; /* Remove vertical scroll */
     scroll-behavior: smooth;
     padding: 1rem 0;
     scroll-snap-type: x mandatory;
@@ -11,6 +12,7 @@
 
 .feature-card {
     max-width: 350px; /* Fixed width to maintain size */
+    min-width: 320px; /* Ensure consistent minimum width */
     flex-shrink: 0;
     background-color: var(--card-background);
     padding: 1.5rem;
@@ -19,6 +21,7 @@
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     scroll-snap-align: center;
+    height: fit-content; /* Prevent vertical overflow */
 }
 
 .feature-card:hover {

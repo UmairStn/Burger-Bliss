@@ -4,9 +4,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: rgba(255, 248, 240, ); /* Increased from 0.2 to 0.7 for better visibility */
+    background-color: rgba(255, 248, 240, 0.7); /* Fixed - added the missing value */
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(247, 197, 159, 0.5); /* Made border less transparent */
+    border-bottom: 1px solid rgba(247, 197, 159, 0.5);
     position: fixed;
     top: 20px;
     left: 20px;
@@ -110,7 +110,7 @@
         left: 10px;
         right: 10px;
         padding: 1rem 1.5rem;
-        background-color: rgba(255, 248, 240, 0.8); /* Less transparent, more readable */
+        background-color: rgba(255, 248, 240, 0.8); /* Consistent mobile transparency */
     }
 
     h1 { font-size: 2.2rem; }
@@ -155,5 +155,24 @@
         height: 40px;
         margin-right: 1rem;
     }
+}
+
+/* Theme-specific navbar colors (add to your style.css) */
+
+/* Light theme navbar */
+.navbar {
+    background-color: rgba(255, 248, 240, 0.7);
+}
+
+/* Dark theme navbar */
+[data-theme="dark"] .navbar {
+    background-color: rgba(42, 42, 42, 0.7);
+    border-bottom: 1px solid rgba(74, 74, 74, 0.5);
+}
+
+/* Premium theme navbar */
+[data-theme="premium"] .navbar {
+    background-color: rgba(248, 243, 234, 0.7);
+    border-bottom: 1px solid rgba(222, 184, 135, 0.5);
 }
 
