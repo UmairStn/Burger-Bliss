@@ -32,15 +32,15 @@ document.addEventListener('DOMContentLoaded', function() {
         dark: {
             name: 'dark',
             icon: '🌙',
-            next: 'premium',
+            next: 'light',
             navbarBg: 'rgba(42, 42, 42, 0.5)' // Transparent dark background
         },
-        premium: {
-            name: 'premium',
-            icon: '👑',
-            next: 'light',
-            navbarBg: 'rgba(253, 245, 230, 0.5)' // Transparent premium background
-        }
+        // premium: {
+        //     name: 'premium',
+        //     icon: '👑',
+        //     next: 'light',
+        //     navbarBg: 'rgba(253, 245, 230, 0.5)' // Transparent premium background
+        // }
     };
     
     // Get saved theme or default to light
@@ -146,10 +146,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Add notification to theme toggle
-    const originalClickHandler = themeToggle.onclick;
-    themeToggle.addEventListener('click', function() {
-        setTimeout(() => {
-            showThemeNotification(currentTheme);
-        }, 200);
-    });
+    // const originalClickHandler = themeToggle.onclick;
+    // themeToggle.addEventListener('click', function() {
+    //     setTimeout(() => {
+    //         showThemeNotification(currentTheme);
+    //     }, 200);
+    // });
 });
