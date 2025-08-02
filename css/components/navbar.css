@@ -4,9 +4,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: rgba(255, 248, 240, ); /* Increased from 0.2 to 0.7 for better visibility */
+    background-color: rgba(255, 248, 240, 0.7); /* Fixed missing value */
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(247, 197, 159, 0.5); /* Made border less transparent */
+    border-bottom: 1px solid rgba(247, 197, 159, 0.5);
     position: fixed;
     top: 20px;
     left: 20px;
@@ -49,11 +49,11 @@
     width: 0;
     height: 0;
     background-color: var(--primary-color);
-    border-radius: 15px; /* Changed from 50% to 15px for rounded box */
+    border-radius: 15px;
     transform: translate(-50%, -50%);
     transition: width 0.6s ease, height 0.4s ease;
     z-index: -1;
-    opacity: 0.8; /* Slightly reduced opacity */
+    opacity: 0.8;
 }
 
 .nav-link:hover {
@@ -100,50 +100,72 @@
     display: none;
     cursor: pointer;
     font-size: 1.8rem;
+    z-index: 1001;
 }
 
-/* Responsive Navigation */
-/* Media Query for smaller font sizes on mobile */
+/* FIXED MOBILE NAVIGATION */
 @media (max-width: 768px) {
     .navbar {
         top: 10px;
         left: 10px;
         right: 10px;
         padding: 1rem 1.5rem;
-        background-color: rgba(255, 248, 240, 0.8); /* Less transparent, more readable */
+        background-color: rgba(255, 248, 240, 0.8);
     }
 
     h1 { font-size: 2.2rem; }
     h2 { font-size: 1.8rem; }
     .section-container { padding: 3rem 1rem; }
 
+    /* FIXED: Mobile menu properly hidden */
     .nav-menu {
         position: fixed;
-        right: -100%;
         top: 80px;
-        flex-direction: column;
-        background-color: rgba(255, 255, 255, 0.95); /* Less transparent mobile menu */
-        backdrop-filter: blur(20px);
-        width: calc(100% - 20px);
         left: 10px;
+        right: 10px;
+        width: calc(100% - 20px);
+        height: 0; /* Start with 0 height */
+        max-height: 0; /* Hidden by default */
+        overflow: hidden; /* Hide content when collapsed */
+        flex-direction: column;
+        background-color: rgba(42, 42, 42, 0.95);
+        backdrop-filter: blur(20px);
         text-align: center;
-        transition: right 0.3s ease;
+        transition: all 0.3s ease; /* Smooth transition */
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
         z-index: 999;
         border-radius: 10px;
-        padding: 1rem 0;
+        padding: 0; /* No padding when hidden */
         border: 1px solid rgba(247, 197, 159, 0.4);
+        opacity: 0; /* Start invisible */
     }
     
+    /* FIXED: Show menu when active */
     .nav-menu.active {
-        right: 10px;    /* Slide to match navbar right position */
-        height: auto;
-        max-height: calc(100vh - 100px);
+        height: auto; /* Allow natural height */
+        max-height: 400px; /* Enough space for menu items */
+        padding: 1rem 0; /* Add padding when visible */
+        opacity: 1; /* Make visible */
     }
     
     .nav-item {
         margin: 1rem 0;
+        transform: translateY(-20px); /* Start above position */
+        opacity: 0; /* Start invisible */
+        transition: all 0.3s ease;
     }
+
+    /* FIXED: Animate menu items when active */
+    .nav-menu.active .nav-item {
+        transform: translateY(0); /* Move to normal position */
+        opacity: 1; /* Make visible */
+    }
+
+    /* Stagger animation delays */
+    .nav-menu.active .nav-item:nth-child(1) { transition-delay: 0.1s; }
+    .nav-menu.active .nav-item:nth-child(2) { transition-delay: 0.2s; }
+    .nav-menu.active .nav-item:nth-child(3) { transition-delay: 0.3s; }
+    .nav-menu.active .nav-item:nth-child(4) { transition-delay: 0.4s; }
     
     .hamburger {
         display: block;
@@ -156,4 +178,6 @@
         margin-right: 1rem;
     }
 }
+
+
 

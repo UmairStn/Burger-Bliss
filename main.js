@@ -16,6 +16,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Enhanced mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+                
+                // Change hamburger icon
+                if (navMenu.classList.contains('active')) {
+                    hamburger.innerHTML = '<span>✕</span>';
+                } else {
+                    hamburger.innerHTML = '<span>☰</span>';
+                }
+            });
+            
+            // Close menu when clicking on links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    hamburger.innerHTML = '<span>☰</span>';
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!document.querySelector('.navbar').contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    hamburger.innerHTML = '<span>☰</span>';
+                }
+            });
+        }
+    });
+
     // Theme Toggle Functionality
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.querySelector('.theme-icon');
