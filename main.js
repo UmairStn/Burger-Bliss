@@ -2,19 +2,67 @@
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const navbar = document.querySelector('.navbar');
     
-    hamburger.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
+    // Create overlay for mobile menu
+    const menuOverlay = document.createElement('div');
+    menuOverlay.className = 'menu-overlay';
+    document.body.appendChild(menuOverlay);
     
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            
+            // Toggle hamburger icon
+            if (navMenu.classList.contains('active')) {
+                hamburger.innerHTML = '<span>✕</span>'; // Close icon
+                menuOverlay.style.display = 'block';
+            } else {
+                hamburger.innerHTML = '<span>☰</span>'; // Hamburger icon
+                menuOverlay.style.display = 'none';
+            }
+        });
+        
+        // Close menu when clicking on overlay
+        menuOverlay.addEventListener('click', function() {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
+            hamburger.innerHTML = '<span>☰</span>';
+            menuOverlay.style.display = 'none';
         });
-    });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.innerHTML = '<span>☰</span>';
+                menuOverlay.style.display = 'none';
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navbar.contains(e.target)) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.innerHTML = '<span>☰</span>';
+                menuOverlay.style.display = 'none';
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.innerHTML = '<span>☰</span>';
+                menuOverlay.style.display = 'none';
+            }
+        });
+    }
 
     // Enhanced mobile menu functionality
     document.addEventListener('DOMContentLoaded', function() {
