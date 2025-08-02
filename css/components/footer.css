@@ -22,7 +22,7 @@ footer {
 }
 
 .social-links a {
-    color: var(--card-background);
+    color: #FFFFFF;
     margin: 0 0.5rem;
     font-size: 1.2rem;
     transition: color 0.3s ease;
