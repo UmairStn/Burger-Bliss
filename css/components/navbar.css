@@ -15,6 +15,7 @@
     z-index: 1000;
     transition: all 0.3s ease;
     border-radius: 10px;
+    animation: slideDown 0.5s ease-out;
 }
 
 .nav-logo {
@@ -79,6 +80,7 @@
     justify-content: center;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-light);
+    position: relative; /* Added for notification badge */
 }
 
 .theme-toggle:hover {
@@ -94,6 +96,25 @@
 
 .theme-toggle:hover .theme-icon {
     filter: brightness(0) invert(1);
+}
+
+/* Notification badge for theme toggle */
+.theme-toggle::after {
+    content: attr(data-theme);
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover::after {
+    opacity: 1;
 }
 
 .hamburger {
@@ -154,6 +175,17 @@
         width: 40px;
         height: 40px;
         margin-right: 1rem;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
