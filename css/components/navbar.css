@@ -15,7 +15,6 @@
     z-index: 1000;
     transition: all 0.3s ease;
     border-radius: 10px;
-    animation: slideDown 0.5s ease-out;
 }
 
 .nav-logo {
@@ -80,7 +79,6 @@
     justify-content: center;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-light);
-    position: relative;
 }
 
 .theme-toggle:hover {
@@ -102,10 +100,10 @@
     display: none;
     cursor: pointer;
     font-size: 1.8rem;
-    z-index: 1001; /* Make sure hamburger is above menu */
+    z-index: 1001;
 }
 
-/* Responsive Navigation - FIXED */
+/* FIXED MOBILE NAVIGATION */
 @media (max-width: 768px) {
     .navbar {
         top: 10px;
@@ -115,47 +113,55 @@
         background-color: rgba(255, 248, 240, 0.8);
     }
 
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    .section-container { padding: 3rem 1rem; }
+
+    /* FIXED: Mobile menu properly hidden */
     .nav-menu {
         position: fixed;
         top: 80px;
         left: 10px;
         right: 10px;
         width: calc(100% - 20px);
-        height: auto;
-        max-height: 0; /* Start with 0 height */
+        height: 0; /* Start with 0 height */
+        max-height: 0; /* Hidden by default */
         overflow: hidden; /* Hide content when collapsed */
         flex-direction: column;
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: rgba(42, 42, 42, 0.95);
         backdrop-filter: blur(20px);
         text-align: center;
-        transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth height transition */
+        transition: all 0.3s ease; /* Smooth transition */
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
         z-index: 999;
         border-radius: 10px;
-        padding: 0; /* Start with no padding */
+        padding: 0; /* No padding when hidden */
         border: 1px solid rgba(247, 197, 159, 0.4);
         opacity: 0; /* Start invisible */
     }
     
+    /* FIXED: Show menu when active */
     .nav-menu.active {
-        max-height: 300px; /* Allow enough height for content */
+        height: auto; /* Allow natural height */
+        max-height: 400px; /* Enough space for menu items */
+        padding: 1rem 0; /* Add padding when visible */
         opacity: 1; /* Make visible */
-        padding: 1rem 0; /* Add padding when active */
     }
     
     .nav-item {
         margin: 1rem 0;
-        transform: translateY(-20px); /* Start items above */
+        transform: translateY(-20px); /* Start above position */
         opacity: 0; /* Start invisible */
         transition: all 0.3s ease;
     }
 
+    /* FIXED: Animate menu items when active */
     .nav-menu.active .nav-item {
-        transform: translateY(0); /* Move items to position */
+        transform: translateY(0); /* Move to normal position */
         opacity: 1; /* Make visible */
     }
 
-    /* Stagger the nav item animations */
+    /* Stagger animation delays */
     .nav-menu.active .nav-item:nth-child(1) { transition-delay: 0.1s; }
     .nav-menu.active .nav-item:nth-child(2) { transition-delay: 0.2s; }
     .nav-menu.active .nav-item:nth-child(3) { transition-delay: 0.3s; }
@@ -171,38 +177,7 @@
         height: 40px;
         margin-right: 1rem;
     }
-
-    /* Hide menu when clicking outside */
-    .nav-menu.active ~ .menu-overlay {
-        display: block;
-    }
-
-    .menu-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.1);
-        z-index: 998;
-    }
 }
 
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
 
-/* Dark theme mobile menu */
-[data-theme="dark"] .nav-menu {
-    background-color: rgba(42, 42, 42, 0.95);
-    border: 1px solid rgba(74, 74, 74, 0.4);
-}
 
