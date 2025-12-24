@@ -40,6 +40,7 @@
     text-align: center;
     color: white;
     max-width: 800px;
+    padding: 0 1.5rem;
 }
 
 .hero-content h1 {
@@ -53,9 +54,10 @@
 }
 
 .hero-content p {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
     margin-bottom: 2rem;
     color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
 }
 
 .hero-cta {
@@ -63,13 +65,43 @@
     color: var(--white-color);
     padding: 0.8rem 2rem;
     border-radius: 25px;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     font-weight: 600;
     transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .hero-cta:hover {
     background-color: var(--white-color);
     color: var(--accent-color);
     transform: translateY(-3px);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-content p {
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-cta {
+        padding: 0.7rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero {
+        min-height: 90vh;
+    }
+
+    .hero-background {
+        min-height: 90vh;
+    }
 }

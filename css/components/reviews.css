@@ -5,6 +5,7 @@
     overflow-x: auto;
     padding: 1rem 0;
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
 .review-card {
@@ -32,6 +33,7 @@
     margin-bottom: 1rem;
     color: var(--text-color);
     line-height: 1.6;
+    font-size: clamp(0.85rem, 2vw, 1rem);
 }
 
 .reviewer {
@@ -39,7 +41,7 @@
     color: var(--primary-color);
 }
 
-/* Scrollbar styling for webkit browsers */
+/* Scrollbar styling */
 .reviews-grid::-webkit-scrollbar {
     height: 8px;
 }
@@ -54,13 +56,24 @@
     border-radius: 10px;
 }
 
-/* Responsive Design */
+/* Mobile Optimizations */
 @media (max-width: 768px) {
-    .review-card {
-        min-width: 250px;
-    }
-    
     .reviews-grid {
         gap: 1rem;
+        padding: 0.5rem 0;
+    }
+
+    .review-card {
+        min-width: 280px;
+        width: 280px;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .review-card {
+        min-width: 260px;
+        width: 260px;
+        padding: 1.25rem;
     }
 }

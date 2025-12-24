@@ -8,8 +8,6 @@
 @import url('css/components/contact.css');
 @import url('css/components/footer.css');
 
-
-
 /* Default Theme (Light) */
 :root {
     --primary-color: #FF6B35;
@@ -69,7 +67,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Enables smooth scrolling natively */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -77,6 +75,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 a {
@@ -94,17 +93,17 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 5vw, 4rem);
     font-weight: 700;
-
 }
 
 h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 3rem);
     color: var(--accent-color);
     position: relative;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
 }
 
 h2::after {
@@ -119,13 +118,36 @@ h2::after {
     border-radius: 2px;
 }
 
-h3 { font-size: 1.25rem; }
+h3 { 
+    font-size: clamp(1rem, 3vw, 1.25rem);
+}
 
 /* General container for sections */
 .section-container {
-    padding: 4rem 2rem;
+    padding: 3rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .section-container {
+        padding: 2rem 1rem;
+    }
+
+    h2 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-container {
+        padding: 2rem 0.75rem;
+    }
 }
 
