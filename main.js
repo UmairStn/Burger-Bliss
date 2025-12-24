@@ -64,42 +64,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Enhanced mobile menu functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', function(e) {
-                e.stopPropagation();
-                navMenu.classList.toggle('active');
-                
-                // Change hamburger icon
-                if (navMenu.classList.contains('active')) {
-                    hamburger.innerHTML = '<span>✕</span>';
-                } else {
-                    hamburger.innerHTML = '<span>☰</span>';
-                }
-            });
-            
-            // Close menu when clicking on links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    hamburger.innerHTML = '<span>☰</span>';
-                });
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!document.querySelector('.navbar').contains(e.target)) {
-                    navMenu.classList.remove('active');
-                    hamburger.innerHTML = '<span>☰</span>';
-                }
-            });
-        }
-    });
-
+    // ============================================
+    // THEME TOGGLE FUNCTIONALITY - COMMENTED OUT
+    // Only Light Theme is Active
+    // ============================================
+    
+    /*
     // Theme Toggle Functionality
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.querySelector('.theme-icon');
@@ -111,20 +81,20 @@ document.addEventListener('DOMContentLoaded', function() {
             name: 'light',
             icon: '🌞',
             next: 'dark',
-            navbarBg: 'rgba(255, 248, 240, 0.5)' // Transparent background
+            navbarBg: 'rgba(255, 248, 240, 0.5)'
         },
         dark: {
             name: 'dark',
             icon: '🌙',
-            next: 'light',
-            navbarBg: 'rgba(42, 42, 42, 0.5)' // Transparent dark background
+            next: 'premium',
+            navbarBg: 'rgba(42, 42, 42, 0.5)'
         },
-        // premium: {
-        //     name: 'premium',
-        //     icon: '👑',
-        //     next: 'light',
-        //     navbarBg: 'rgba(253, 245, 230, 0.5)' // Transparent premium background
-        // }
+        premium: {
+            name: 'premium',
+            icon: '👑',
+            next: 'light',
+            navbarBg: 'rgba(253, 245, 230, 0.5)'
+        }
     };
     
     // Get saved theme or default to light
@@ -194,21 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show theme notification
     function showThemeNotification(themeName) {
         const notification = document.createElement('div');
-        /*notification.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: var(--primary-color);
-            color: var(--white-color);
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 500;
-            z-index: 10000;
-            opacity: 0;
-            transform: translateX(100px);
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-medium);
-        `;*/
         notification.textContent = `${themes[themeName].icon} ${themeName.charAt(0).toUpperCase() + themeName.slice(1)} Theme`;
         
         document.body.appendChild(notification);
@@ -228,12 +183,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         }, 2000);
     }
-    
-    // Add notification to theme toggle
-    // const originalClickHandler = themeToggle.onclick;
-    // themeToggle.addEventListener('click', function() {
-    //     setTimeout(() => {
-    //         showThemeNotification(currentTheme);
-    //     }, 200);
-    // });
+    */
 });
